@@ -48,7 +48,18 @@ export class LabsComponent {
     this.person.update(prevState => {
       return {
         ...prevState,
-        age: parseInt(newvalue)
+        age: parseInt(newvalue, 10)
+      }
+    });
+  }
+
+  changeName(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const newvalue = input.value;
+    this.person.update(prevState => {
+      return {
+        ...prevState,
+        name: newvalue
       }
     });
   }
